@@ -73,12 +73,7 @@ flutter pub get
 3. **Asset Configuration**
 * Ensure the `.tflite` models and `labels.txt` are present in `assets/models/`.
 
-4. **API Keys (For Maps)**
-* Create `android/local.properties`.
-* Add: `maps_api_key=YOUR_GOOGLE_MAPS_KEY`.
-
-
-5. **Run the App**
+4. **Run the App**
 * **Debug:** `flutter run`
 * **Profile (for RAM testing):** `flutter run --profile`
 
