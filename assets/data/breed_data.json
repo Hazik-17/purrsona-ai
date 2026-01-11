@@ -1,0 +1,449 @@
+[
+  {
+    "id": "abyssinian",
+    "name": "Abyssinian",
+    "tagline": "The Cat of the Dog World",
+    "description": "Resembling a small mountain lion with a shimmering ticked coat, the Abyssinian is one of the oldest and most intelligent breeds. Often called 'Aby-silly-ans' for their clownish antics, they are known as 'preposition cats'—always found above, behind, or in between everything you do.",
+    "history": "While legend links them to the sacred cats of Ancient Egypt, modern genetics trace their true lineage to the coast of the Bay of Bengal (India). They were first exhibited in England in 1871 and have since become one of the most beloved breeds for their wild look and engaging personality.",
+    "origin": "Bay of Bengal / Ethiopia",
+    "lifespan": "14 - 17+ years",
+    "weight": "2.7 - 5.4 kg",
+    "temperament": ["High Energy", "Loyal", "Intelligent", "Vertical Dweller", "Social"],
+    "activity_level": "Very High",
+    "health_summary": "Generally healthy, but regular dental care is vital as they are prone to gingivitis.",
+    "genetic_issues": [
+      "Pyruvate Kinase Deficiency (PK-Def)",
+      "Progressive Retinal Atrophy (PRA)",
+      "Patella Luxation (Knee issues)",
+      "Renal Amyloidosis (Kidney issues)"
+    ],
+    "grooming": "Wash-and-wear coat. Requires very little brushing, but regular tooth brushing is highly recommended.",
+    "care_tips": [
+      "Provide high vertical spaces (cat trees) as they love to observe from above.",
+      "Place water bowls at least 3 feet away from food; their sensitive noses dislike food smells near water.",
+      "Needs interactive play; they will fetch and invent games."
+    ],
+    "fun_facts": [
+      "The first cat DNA ever decoded was an Abyssinian named Cinnamon.",
+      "They starred as 'Jake' in the Disney movie 'The Cat From Outer Space'.",
+      "They are often rated as the smartest cat breed in the world."
+    ],
+    "image_path": "assets/images/abyssinian_0.jpg"
+  },
+  {
+    "id": "bengal",
+    "name": "Bengal",
+    "tagline": "The Domestic Cat with the Soul of a Leopard",
+    "description": "Bred to combine the wild appearance of a jungle cat with the gentle temperament of a domestic pet, the Bengal is famous for its luxurious, pelt-like coat. They are the only domestic breed with 'rosettes'—the distinct markings of leopards and jaguars. Many Bengals also possess a unique 'glitter' gene that gives their fur a shimmering, iridescent gold or pearl dusting.",
+    "history": "The breed began in 1963 when Jean S. Mill crossed a domestic cat with a wild Asian Leopard Cat (Prionailurus bengalensis) to create a pet with a wild look but loving nature. They gained championship status in 1991 and are now one of the most popular breeds in the world.",
+    "origin": "USA (Hybrid Cross)",
+    "lifespan": "12 - 20 years",
+    "weight": "2.7 - 6.8 kg",
+    "temperament": [
+      "High Energy",
+      "Water Lover",
+      "Intelligent",
+      "Vocal",
+      "Confident"
+    ],
+    "activity_level": "Extremely High",
+    "health_summary": "Generally robust and athletic. Note: Bengals are sometimes misdiagnosed with IBS (Irritable Bowel Syndrome) when they often just need a specific high-protein diet.",
+    "genetic_issues": [
+      "Hypertrophic Cardiomyopathy (HCM)",
+      "Progressive Retinal Atrophy (PRA)",
+      "PK-Deficiency (Anemia)",
+      "Cataracts"
+    ],
+    "grooming": "Low maintenance. Their short, soft coat sheds very little. Monthly nail trims and dental chews (like chicken sticks) are recommended.",
+    "care_tips": [
+      "They love water and may try to join you in the shower or play in the sink.",
+      "Needs 'wild' interactive toys; they will ignore boring static toys.",
+      "Requires vertical territory (tall cat trees) as they love to observe from high up.",
+      "Avoid 'free feeding'; they do best on scheduled high-protein or raw diets."
+    ],
+    "fun_facts": [
+      "Some Bengals have 'glitter' on their fur, making them sparkle in sunlight.",
+      "They are often described as trying to 'hold onto running water' when playing.",
+      "Their name comes from the scientific name for the Asian Leopard Cat, *P. bengalensis*."
+    ],
+    "image_path": "assets/images/bengal_0.jpg"
+  },
+  {
+    "id": "birman",
+    "name": "Birman",
+    "tagline": "The Sacred Cat of Burma",
+    "description": "The legendary Birman takes your breath away with its stunning pointed coat, bewitching deep sapphire blue eyes, and mystical white 'gloves' on its paws. Beneath their silky, semi-longhaired exterior lies a stocky, powerful, and heavily boned cat. Known as the 'Sacred Cat of Burma', they are gentle, affectionate buddies who dwell peacefully in family homes.",
+    "history": "According to legend, the Birman was created in a Burmese temple by Kittah priests. A white temple cat stood guard over his dying master and was transformed by a golden goddess—his coat turned golden-cream, his eyes sapphire blue, and his legs dark, but his paws remained pure white as a symbol of his master's purity. Factually, the breed was first recognized in France in the 1920s.",
+    "origin": "Burma (Myanmar) / France",
+    "lifespan": "9 - 15+ years",
+    "weight": "Approx. 5.4 kg",
+    "temperament": [
+      "Gentle",
+      "Affectionate",
+      "Polite Talker",
+      "Family Oriented",
+      "Playful"
+    ],
+    "activity_level": "Moderate",
+    "health_summary": "Generally a very healthy and robust breed that can live well into their late teens. Following proper nutrition is key to maintaining their 'stocky' muscular build without becoming overweight.",
+    "genetic_issues": [
+      "Generally Healthy",
+      "Prone to gingivitis (requires brushing)",
+      "Risk of obesity if overfed"
+    ],
+    "grooming": "Surprisingly low maintenance. They have a 'single coat' with no undercoat, meaning they rarely mat. A weekly combing with a metal comb is sufficient.",
+    "care_tips": [
+      "Talk to them! They will become conversationalists only if you respond to their meows.",
+      "Provide a tall scratching pole to satisfy their natural scratching instincts.",
+      "Place water bowls at least 3 feet away from food to encourage hydration.",
+      "Use a metal comb weekly to remove loose hair, especially during spring shedding."
+    ],
+    "fun_facts": [
+      "They have white 'gloves' on the front paws and white 'laces' extending up the back legs.",
+      "Legend says their white paws represent the purity of a priest's soul.",
+      "They are a 'polite' breed; they will usually only meow if you talk to them first."
+    ],
+    "image_path": "assets/images/birman_0.jpg"
+  },
+  {
+    "id": "bombay",
+    "name": "Bombay",
+    "tagline": "The Parlor Panther with Copper Eyes",
+    "description": "Designed to resemble the wild black leopard of India, the Bombay is a stunning 'mini-panther' with a coat that gleams like patent leather and eyes like new copper pennies. Despite their wild look, they are purring bundles of love that combine the easy-going nature of the American Shorthair with the 'velcro-like' affection of the Burmese. They will follow you from room to room and burrow under your covers like a hot water bottle.",
+    "history": "The breed was created in the 1950s by Nikki Horner, who dreamt of a cat that looked like the black leopard of India. She successfully crossed a black American Shorthair with a sable Burmese. Though early efforts failed, her persistence paid off, and the breed achieved championship status in 1979.",
+    "origin": "USA (Man-made)",
+    "lifespan": "12 - 16+ years",
+    "weight": "3.6 - 6.8 kg",
+    "temperament": [
+      "Velcro Cat",
+      "Heat Seeker",
+      "Social",
+      "Mini-Panther",
+      "Kid Friendly"
+    ],
+    "activity_level": "High",
+    "health_summary": "Generally a healthy and robust breed, but it is of paramount importance to screen for heart issues.",
+    "genetic_issues": [
+      "Hypertrophic Cardiomyopathy (HCM)",
+      "Obesity (due to stocky build)"
+    ],
+    "grooming": "Low maintenance. Their tight coat sheds very little. A unique tip: Polish their coat with a chamois cloth or the palm of your hand to make it shine like a mirror.",
+    "care_tips": [
+      "They crave constant company and dislike being alone; consider a second cat if you work long hours.",
+      "Place water bowls at least 3 feet away from food (Jackson Galaxy tip) to encourage drinking.",
+      "Provide 'heat sources'—they love snuggling under covers or in sunny spots.",
+      "Needs sturdy scratching posts to support their muscular, heavy bodies."
+    ],
+    "fun_facts": [
+      "They are often heavier than they look due to their dense, muscular build.",
+      "They are solid black to the root—including nose leather and paw pads.",
+      "Their eyes are described as looking like 'new copper pennies'."
+    ],
+    "image_path": "assets/images/bombay_1.jpg"
+  },
+  {
+    "id": "british_shorthair",
+    "name": "British Shorthair",
+    "tagline": "The Winston Churchill of the Cat World",
+    "description": "With their chubby 'chipmunk cheeks', plush teddy-bear coats, and dignified demeanor, the British Shorthair is a living icon. They are famous for inspiring the smiling 'Cheshire Cat' in Alice in Wonderland. Unlike velcro cats, they are undemanding companions who prefer to sit beside you rather than on top of you, ruling their kingdom with quiet confidence and 'four feet on the floor'.",
+    "history": "One of the oldest English breeds, their ancestors arrived with the Romans who invaded Great Britain to protect grain stores. Nearly extinct after WWII, the breed was saved by crossing the remaining lines with Persians and Russian Blues, which gave them their thick, plush coats.",
+    "origin": "Great Britain / Ancient Rome",
+    "lifespan": "12 - 20 years",
+    "weight": "3.6 - 7.3 kg",
+    "temperament": [
+      "Dignified",
+      "Calm",
+      "Independent",
+      "Not a Lap Cat",
+      "Quiet"
+    ],
+    "activity_level": "Low (Sedentary)",
+    "health_summary": "A very robust breed, but their sedentary nature makes them prone to obesity. Heart health is the primary genetic concern.",
+    "genetic_issues": [
+      "Hypertrophic Cardiomyopathy (HCM)",
+      "Obesity (High Risk)",
+      "Dental Issues",
+      "Hemophilia B (Rare)"
+    ],
+    "grooming": "Low maintenance. Their coat is short but incredibly dense and 'crisp' to the touch. A weekly combing is usually enough, though they shed seasonally.",
+    "care_tips": [
+      "Respect their dignity: They dislike being picked up and prefer keeping 'four feet on the floor'.",
+      "Strict portion control is necessary; they love food and are prone to becoming overweight 'teddy bears'.",
+      "Place water bowls at least 3 feet away from food to encourage drinking.",
+      "Engage them with teaser toys to combat their laziness."
+    ],
+    "fun_facts": [
+      "They are the inspiration for the 'Cheshire Cat' in Alice in Wonderland.",
+      "Often called the 'Winston Churchill' of cats due to their jowls and imposing presence.",
+      "They have a permanent 'smile' due to their prominent whisker pads.",
+      "They were originally barn cats used to hunt rats."
+    ],
+    "image_path": "assets/images/british_shorthair_0.jpg"
+  },
+  {
+    "id": "egyptian_mau",
+    "name": "Egyptian Mau",
+    "tagline": "The Pharaoh's Living Relic",
+    "description": "The only naturally spotted breed of domestic cat, the Egyptian Mau is a living artifact from the time of the Pharaohs. With their 'gooseberry green' eyes and a characteristic 'worried' expression, they are statuesque and regal. They possess a unique skin flap (like a cheetah) that allows for incredible bursts of speed, making them the fastest of all domestic cats.",
+    "history": "Ancient Egyptian artwork leaves little doubt that this is the cat worshiped by the Pharaohs. Recent genetic studies confirm they originated in the Fertile Crescent. The modern breed arrived in the US in 1956 via Russian Princess Nathalie Troubetskoy, who imported three Maus from Italy.",
+    "origin": "Egypt / Fertile Crescent",
+    "lifespan": "10 - 15+ years",
+    "weight": "2.7 - 5.4 kg",
+    "temperament": [
+      "Intensely Loyal",
+      "Shy with Strangers",
+      "Fastest Domestic Cat",
+      "One-Person Cat",
+      "Alert"
+    ],
+    "activity_level": "Very High",
+    "health_summary": "Generally healthy, but susceptible to specific metabolic and neurological conditions. Their high metabolism may require adjusted feeding portions.",
+    "genetic_issues": [
+      "Pyruvate Kinase Deficiency (PK-Def)",
+      "Leukodystrophy (Neurological issue)",
+      "Urolithiasis (Bladder stones)"
+    ],
+    "grooming": "Low maintenance. Weekly brushing keeps their spotted coat shiny. Note: Smoke-colored Maus have fine, silky fur, while Silver/Bronze Maus have denser coats.",
+    "care_tips": [
+      "They are sensitive to loud noises; a quiet home environment is best.",
+      "Provide plenty of room to run; they love to sprint at high speeds.",
+      "Place water bowls at least 3 feet away from food to encourage drinking.",
+      "Start handling kittens early if you plan to show them, as they are naturally shy."
+    ],
+    "fun_facts": [
+      "They are the fastest domestic cat, capable of speeds up to 30 mph (48 km/h).",
+      "They have a 'M' mark on their forehead, known as the 'Mark of the Scarab'.",
+      "Their hind legs are longer than their front legs, giving them a 'tiptoe' stance.",
+      "They are the only natural spotted breed (not man-made like the Bengal)."
+    ],
+    "image_path": "assets/images/egyptian_mau_0.jpg"
+  },
+  {
+    "id": "maine_coon",
+    "name": "Maine Coon",
+    "tagline": "The Gentle Giant of America",
+    "description": "As America's native longhair, the Maine Coon was built to survive the harsh winters of New England with its water-resistant coat and bushy tail. Despite their imposing size, they are 'gentle giants' with a clown-like personality. They rarely meow; instead, they communicate with soft chirps and trills that seem too tiny for their massive bodies. They are not clingy 'baby' cats but loyal buddies who will 'help' you with every household chore.",
+    "history": "Regarded as a native of Maine (and the official State Cat), legends once claimed they were a cross between cats and raccoons—biologically impossible, but explaining the name 'Coon'. Another theory suggests they descended from Marie Antoinette's pets sent to America during the French Revolution. In reality, they likely evolved from matings between local shorthairs and overseas longhairs brought by seamen or Vikings.",
+    "origin": "USA (Maine)",
+    "lifespan": "12.5+ years",
+    "weight": "5.4 - 10.0 kg",
+    "temperament": [
+      "Gentle Giant",
+      "Water Lover",
+      "Chirper (Rarely Meows)",
+      "Dog-Like",
+      "Helper"
+    ],
+    "activity_level": "Moderate",
+    "health_summary": "Generally hardy, but their large size puts them at risk for joint issues and specific genetic heart conditions.",
+    "genetic_issues": [
+      "Hypertrophic Cardiomyopathy (HCM)",
+      "Hip Dysplasia (Joint issues)",
+      "Spinal Muscular Atrophy (SMA)",
+      "Polycystic Kidney Disease"
+    ],
+    "grooming": "Moderate. Their two-layered coat requires regular combing to prevent mats. Some owners opt for a 'Lion Cut' to manage the fur easier. Weekly nail trims are vital for kittens.",
+    "care_tips": [
+      "Provide extra-large litter boxes and sturdy scratching posts to accommodate their size.",
+      "They are 'ground hunters' and prefer chasing toys on the floor rather than climbing high.",
+      "Place water bowls away from food; they often play in their water dishes.",
+      "Expect a long kittenhood; they don't reach full size until 3-5 years old."
+    ],
+    "fun_facts": [
+      "They don't meow; they 'chirp' and 'trill' like birds.",
+      "A Maine Coon named 'Cosie' won Best Cat at the first major US cat show in 1895.",
+      "They are the official State Cat of Maine.",
+      "Legend says they are part raccoon (false, but a fun story!)."
+    ],
+    "image_path": "assets/images/maine_coon_0.jpg"
+  },
+  {
+    "id": "persian",
+    "name": "Persian",
+    "tagline": "The Glamorous Aristocrat",
+    "description": "With a pansy-like face and huge copper eyes, the Persian is the epitome of feline glamour. Beneath their luxurious flowing coat lies a sturdy body supported by short legs resembling 'little tree trunks'. They are intelligent but selective—communicating with expressive eyes rather than loud meows. They expect you to understand their wishes without them having to ask!",
+    "history": "One of the oldest breeds, appearing in hieroglyphics and decorating the parlors of Queen Victoria. While early Persians had longer noses, modern breeding has evolved them into the flat-faced (brachycephalic) icons we know today.",
+    "origin": "Persia (Iran) / Turkey",
+    "lifespan": "8 - 11 years",
+    "weight": "3.2 - 5.4 kg",
+    "temperament": [
+      "Calm & Gentle",
+      "Creature of Habit",
+      "Not a Jumper",
+      "Quiet",
+      "Affectionate"
+    ],
+    "activity_level": "Low",
+    "health_summary": "Generally healthy, but their flat face causes respiratory and eye drainage issues. Kidney health is a primary concern.",
+    "genetic_issues": [
+      "Polycystic Kidney Disease (PKD)",
+      "Progressive Retinal Atrophy (PRA)",
+      "Respiratory Difficulty (Brachycephalic)",
+      "Eye Tearing / Staining"
+    ],
+    "grooming": "High Maintenance. Requires daily combing with a metal comb to prevent painful mats. Their eyes must be wiped daily to prevent tear staining.",
+    "care_tips": [
+      "They prefer the security of the ground; you won't find them on top of bookcases.",
+      "Daily eye wiping is essential to keep their face clean.",
+      "They do well with water fountains, which keep their chin fur dry.",
+      "Strict indoor-only lifestyle is best due to their heavy coat and gentle nature."
+    ],
+    "fun_facts": [
+      "They have short, thick legs often described as 'little tree trunks'.",
+      "They were a favorite of Queen Victoria.",
+      "They are not inactive; they just prefer 'draping' themselves decoratively over furniture."
+    ],
+    "image_path": "assets/images/persian_0.jpg"
+  },
+  {
+    "id": "ragdoll",
+    "name": "Ragdoll",
+    "tagline": "The Puppy-Cat That Flops",
+    "description": "True to their name, these large, affectionate cats often go completely limp like a stuffed doll when picked up. With captivating blue eyes and a soft, semi-long coat that feels like rabbit fur, they are gentle giants. They are often called 'puppy-cats' because they follow owners room-to-room and can even be taught to play fetch.",
+    "history": "Developed in the 1960s by Ann Baker in California. The breed matriarch, a white cat named Josephine, produced kittens with uniquely docile temperaments after a car accident. While Baker's claim that the accident genetically altered the kittens is biologically impossible, the resulting breed is famously relaxed.",
+    "origin": "USA (California)",
+    "lifespan": "12 - 17 years",
+    "weight": "4.5 - 9.1 kg",
+    "temperament": [
+      "Floppy & Relaxed",
+      "Puppy-like",
+      "Tolerant",
+      "Gentle Giant",
+      "Kid Friendly"
+    ],
+    "activity_level": "Low to Moderate",
+    "health_summary": "A hearty breed, but genetic heart health is the main priority. Obesity is also a risk for these large cats.",
+    "genetic_issues": [
+      "Hypertrophic Cardiomyopathy (HCM)",
+      "Obesity",
+      "Bladder Stones"
+    ],
+    "grooming": "Moderate. Their silky coat has a texture like rabbit fur and sheds mostly in spring/fall. It resists matting better than Persians but still needs weekly brushing.",
+    "care_tips": [
+      "Watch their weight; they are naturally large, but shouldn't be fat.",
+      "Brush down to the skin to prevent 'armpit tangles'.",
+      "They are strictly indoor cats; they are too trusting and lack defensive instincts for outside.",
+      "Use a stainless steel 'Greyhound' comb for best results."
+    ],
+    "fun_facts": [
+      "They often go completely limp/relaxed when held.",
+      "They are one of the largest domestic cat breeds.",
+      "They are born white and develop their color points as they age.",
+      "They are often happy to be dressed in doll clothes by children."
+    ],
+    "image_path": "assets/images/ragdoll_0.jpg"
+  },
+  {
+    "id": "russian_blue",
+    "name": "Russian Blue",
+    "tagline": "The Archangel with Emerald Eyes",
+    "description": "The Russian Blue is a gem of the feline world, featuring a dense blue coat tipped with silver that shimmers like silk. Their vivid emerald green eyes and enigmatic 'Mona Lisa smile' give them an aristocratic air. While shy with strangers, they are intensely loyal to their chosen humans, often playing fetch and opening doors with their high intelligence.",
+    "history": "Also known as 'Archangel Cats', they originated from the Russian port of Arkhangelsk. Legend says they were pets of the Russian Czars. They traveled with sailors to Europe and were a distinct class in early English cat shows by 1912.",
+    "origin": "Russia (Arkhangelsk)",
+    "lifespan": "15 - 20 years",
+    "weight": "3.2 - 5.4 kg",
+    "temperament": [
+      "Shy with Strangers",
+      "Intensely Loyal",
+      "Intellectual",
+      "Playful",
+      "Observer"
+    ],
+    "activity_level": "Moderate",
+    "health_summary": "Extremely healthy breed. Many reach 16-20 years of age with proper care.",
+    "genetic_issues": [
+      "Generally very healthy",
+      "Prone to obesity if overfed (they love food)"
+    ],
+    "grooming": "Minimal. Their dense double coat needs only occasional brushing. The coat is so thick you can draw patterns in it with your finger!",
+    "care_tips": [
+      "They dislike change; keep a consistent schedule.",
+      "They are 'door openers'—childproof latches might be needed for treat cabinets.",
+      "Provide mental stimulation (puzzle toys) to satisfy their high intelligence.",
+      "They start shy; give them time to assess new people before expecting interaction."
+    ],
+    "fun_facts": [
+      "Their silver-tipped fur makes them shimmer in the sunlight.",
+      "They have a natural, permanent 'smile' due to the shape of their mouth.",
+      "The coat is so dense it stands out from the body.",
+      "They are often called 'Ditch' cats because the Archangel port is on the Dvina River."
+    ],
+    "image_path": "assets/images/russian_blue_0.jpg"
+  },
+  {
+    "id": "siamese",
+    "name": "Siamese",
+    "tagline": "The Talkative Royal of Siam",
+    "description": "Dressed for a masquerade ball with a dark mask and tanzanite-blue eyes, the Siamese is a living work of art. They are angular, elegant, and athletic. Known for being the most talkative of all breeds, they will dictate your schedule and demand to be part of everything you do. They combine the grace of a panther with the loyalty of a dog.",
+    "history": "Ancient manuscripts from Siam (Thailand) dating back to 1350 describe these cats. They made their US debut in 1879 as a gift to the wife of President Rutherford B. Hayes. They are the parent breed for many others, including the Balinese and Oriental Shorthair.",
+    "origin": "Thailand (Siam)",
+    "lifespan": "15 - 20+ years",
+    "weight": "2.3 - 5.4 kg",
+    "temperament": [
+      "Very Vocal",
+      "Demanding",
+      "Social",
+      "High Intelligence",
+      "Active"
+    ],
+    "activity_level": "Very High",
+    "health_summary": "Generally healthy, but they have a known sensitivity to anesthesia which vets must know.",
+    "genetic_issues": [
+      "Amyloidosis (Liver/Kidney issue)",
+      "Anesthesia Sensitivity",
+      "Dental Issues",
+      "Bronchial Asthma"
+    ],
+    "grooming": "Low maintenance. Their short, glossy coat needs little brushing. You can actually groom them by stroking them with damp hands to remove loose hair.",
+    "care_tips": [
+      "CRITICAL: Inform your vet about anesthesia sensitivity before any surgery.",
+      "They need a companion; they do poorly if left alone for long periods.",
+      "Be prepared for noise; they will 'talk' to you all day.",
+      "They love warmth—expect to find them under your covers or on radiators."
+    ],
+    "fun_facts": [
+      "They are born pure white and develop their points as they get warmer (the color comes from a heat-sensitive enzyme).",
+      "President Rutherford B. Hayes owned the first Siamese in the US.",
+      "Cross-eyed Siamese were once common, but breeders have largely eliminated this trait."
+    ],
+    "image_path": "assets/images/siamese_0.jpg"
+  },
+  {
+    "id": "sphynx",
+    "name": "Sphynx",
+    "tagline": "The Suede-Coated Velcro Cat",
+    "description": "Often misunderstood, the Sphynx is not truly hairless but covered in fine down that feels like warm suede or soft chamois leather. They are famous for their 'Buddha-like' round bellies, lemon-shaped eyes, and long toes that function like fingers. They are the ultimate 'Velcro lap cats'—seeking your body heat and companionship constantly.",
+    "history": "The breed began in 1966 in Ontario, Canada, when a black and white cat gave birth to a hairless kitten named 'Prune'. Later natural mutations in Minnesota and Toronto (named Epidermis, Punkie, and Paloma) were bred with Devon Rex cats to establish the healthy breed we know today.",
+    "origin": "Canada (Ontario)",
+    "lifespan": "7 - 15 years",
+    "weight": "2.7 - 5.4 kg",
+    "temperament": [
+      "Velcro Lap Cat",
+      "Heat Seeker",
+      "Elf-like",
+      "Intelligent",
+      "Social"
+    ],
+    "activity_level": "High",
+    "health_summary": "Generally robust, but they require proactive heart screening. Uniquely, they have a very high metabolism and require higher caloric intake than coated cats.",
+    "genetic_issues": [
+      "Hypertrophic Cardiomyopathy (HCM)",
+      "Skin Conditions (Sunburn/Cold)",
+      "Ear Wax Buildup"
+    ],
+    "grooming": "High Maintenance. They accumulate body oils and need bathing every few months (not weekly, to avoid disrupting skin pH). Their ears lack hair to trap wax, so weekly ear cleaning is essential.",
+    "care_tips": [
+      "They are heat-seeking missiles; expect them to sleep under your covers or sit on warm electronics.",
+      "Protect their skin from sunburn and freezing temperatures; they lack a protective coat.",
+      "Feed high-quality food; their high metabolism burns calories faster than average cats.",
+      "Clean their ears weekly to prevent heavy wax buildup."
+    ],
+    "fun_facts": [
+      "Their toes are long and dexterous, acting like 'fingers' to investigate objects.",
+      "They are not hypoallergenic; they still produce dander and oils.",
+      "A healthy Sphynx has a pot-bellied look, as if they just ate a large meal.",
+      "The first hairless foundation kitten was named 'Prune'."
+    ],
+    "image_path": "assets/images/sphynx_0.jpg"
+  }
+]

@@ -1,0 +1,77 @@
+name: purrsona
+description: "This was my Final Year Project for Bachelor Degree in Computer Science, 
+              this application is a Cat Breed Degreeetection application. It main core features was
+              offline detection and has several additional features such as nearby vet finder, personality analyzer, 
+              archive detection analysis."
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Icons
+  cupertino_icons: ^1.0.6
+  flutter_animate: ^4.5.0
+  percent_indicator: ^4.2.3
+
+  # Maps & Location
+  geolocator: ^11.0.0
+  google_maps_flutter: ^2.6.0
+
+  # Networking & Storage
+  http: ^1.2.2
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  cached_network_image: ^3.3.1
+  connectivity_plus: ^6.0.0
+  path_provider: ^2.1.2
+  path: ^1.9.0
+  sqflite: ^2.3.0
+
+  # AI & Image Processing
+  tflite_flutter: ^0.11.0
+  image: ^4.1.7
+  image_picker: ^1.0.7
+  intl: ^0.20.2
+
+  # To share the image
+  screenshot: ^3.0.0
+  share_plus: ^10.0.0
+
+  # For history chart ui
+  fl_chart: ^0.68.0
+  package_info_plus: ^9.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/models/
+    - assets/images/
+    - assets/data/
+    - assets/icon/
+
+fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  min_sdk_android: 21
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  adaptive_icon_background: "#FAF8F5"
+  image_path: "assets/icon/icon_foreground.png"

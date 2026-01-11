@@ -1,0 +1,112 @@
+[
+  {
+    "id": "q1",
+    "question_text": "A stranger walks into your home. How does your cat react?",
+    "options": [
+      {
+        "text": "Vanishes into the void (Hides immediately)",
+        "adjustments": { "social": -2 }
+      },
+      {
+        "text": "The Security Guard (Watches suspiciously from afar)",
+        "adjustments": { "social": -1 }
+      },
+      {
+        "text": "The Polite Greeter (Sniffs shoes, then leaves)",
+        "adjustments": { "social": 1, "balanced": 1 }
+      },
+      {
+        "text": "The Party Animal (Demands pets from everyone)",
+        "adjustments": { "social": 3 }
+      }
+    ]
+  },
+  {
+    "id": "q2",
+    "question_text": "It's 3:00 AM. What is your cat doing?",
+    "options": [
+      {
+        "text": "Sound asleep (probably snoring)",
+        "adjustments": { "playful": -2, "balanced": 1 }
+      },
+      {
+        "text": "The 'Zoomies' (Parkour off the walls)",
+        "adjustments": { "playful": 3 }
+      },
+      {
+        "text": "Singing the song of their people (Meowing loudly)",
+        "adjustments": { "social": 2 }
+      },
+      {
+        "text": "Sleeping on my face",
+        "adjustments": { "affectionate": 2 }
+      }
+    ]
+  },
+  {
+    "id": "q3",
+    "question_text": "How does your cat handle 'Cuddle Time'?",
+    "options": [
+      {
+        "text": "Do not perceive me (Avoids touch)",
+        "adjustments": { "affectionate": -2 }
+      },
+      {
+        "text": "I will sit *near* you, not *on* you",
+        "adjustments": { "affectionate": 0, "balanced": 2 }
+      },
+      {
+        "text": "Pet me... but only exactly 3 times",
+        "adjustments": { "playful": 1, "affectionate": -1 }
+      },
+      {
+        "text": "Velcro Cat (Stuck to my side 24/7)",
+        "adjustments": { "affectionate": 3 }
+      }
+    ]
+  },
+  {
+    "id": "q4",
+    "question_text": "What is their favorite type of toy?",
+    "options": [
+      {
+        "text": "Anything moving (Lasers, Feathers)",
+        "adjustments": { "playful": 2 }
+      },
+      {
+        "text": "Puzzle toys (Requires brain power)",
+        "adjustments": { "playful": 1, "balanced": 1 }
+      },
+      {
+        "text": "A crumpled receipt or bottle cap",
+        "adjustments": { "playful": 2, "social": -1 }
+      },
+      {
+        "text": "They prefer judging me from a distance",
+        "adjustments": { "playful": -2, "balanced": 1 }
+      }
+    ]
+  },
+  {
+    "id": "q5",
+    "question_text": "Does your cat 'talk' to you?",
+    "options": [
+      {
+        "text": "Silent observer (Rarely meows)",
+        "adjustments": { "social": -1, "balanced": 1 }
+      },
+      {
+        "text": "Chirps at birds through the window",
+        "adjustments": { "playful": 2 }
+      },
+      {
+        "text": "Only when the food bowl is empty",
+        "adjustments": { "social": 0 }
+      },
+      {
+        "text": "Full conversations (Meows back when spoken to)",
+        "adjustments": { "social": 2, "affectionate": 1 }
+      }
+    ]
+  }
+]
