@@ -26,7 +26,7 @@
 | --- | --- | --- |
 | **Overall Accuracy** | **93.47%** | Tested on Oxford-IIIT Pet Dataset |
 | **Gatekeeper Precision** | **99.94%** | Success rate in rejecting non-cat objects |
-| **Inference Speed** | **< 2.0s** | End-to-end processing on POCO F7 Ultra |
+| **Inference Speed** | **< 2.0s** | End-to-end processing |
 | **Model Size** | **~12.5 MB** | Total footprint (Int8 Quantized) |
 | **Peak RAM Usage** | **< 500 MB** | Optimized for mid-range Android devices |
 
