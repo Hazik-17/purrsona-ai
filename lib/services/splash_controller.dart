@@ -38,30 +38,30 @@ class SplashController {
     // Pre-cache critical images for smoother UX
     await precacheImage(
         const AssetImage('assets/icon/icon_foreground.png'), context);
-    await precacheImage(
-        const AssetImage('assets/images/abyssinian.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/bengal_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/birman_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/bombay_1.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/british_shorthair_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/egyptian_mau_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/maine_coon_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/persian_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/ragdoll_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/russian_blue_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/siamese_0.jpg'), context);
-    await precacheImage(
-        const AssetImage('assets/images/sphynx_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/abyssinian.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/bengal_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/birman_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/bombay_1.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/british_shorthair_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/egyptian_mau_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/maine_coon_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/persian_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/ragdoll_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/russian_blue_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/siamese_0.jpg'), context);
+    // await precacheImage(
+    //     const AssetImage('assets/images/sphynx_0.jpg'), context);
     
   }
 }

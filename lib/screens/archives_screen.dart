@@ -1,9 +1,12 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'dart:io';
 import '../services/database_helper.dart';
 import '../models/prediction.dart';
 import 'analysis_result_screen.dart';
 import '../widgets/history_chart_widget.dart';
+import '../widgets/history_card.dart';
 
 class ArchivesScreen extends StatefulWidget {
   const ArchivesScreen({super.key});
@@ -102,6 +105,7 @@ class ArchivesScreenState extends State<ArchivesScreen> {
           ? const Center(
               child: CircularProgressIndicator(color: Color(0xFFE8A89B)))
           : CustomScrollView(
+              cacheExtent: 2500.0, // Turbo Mode: Pre-render 2-3 screens ahead
               slivers: [
                 // CHART SECTION (Scrolls with page)
                 if (_allHistory.isNotEmpty)
@@ -167,18 +171,27 @@ class ArchivesScreenState extends State<ArchivesScreen> {
                         delegate: SliverChildBuilderDelegate(
                           (context, index) {
                             final item = _filteredHistory[index];
-                            return Dismissible(
-                              key: Key(item.id),
-                              direction: DismissDirection.endToStart,
-                              background: Container(
-                                alignment: Alignment.centerRight,
-                                padding: const EdgeInsets.only(right: 20),
-                                color: Colors.redAccent,
-                                child: const Icon(Icons.delete,
-                                    color: Colors.white),
-                              ),
-                              onDismissed: (_) => _deleteItem(item.id),
-                              child: _buildHistoryCard(item),
+                            return HistoryCard(
+                              item: item,
+                              onTap: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => AnalysisResultScreen(
+                                      detectedBreed: item.breedName,
+                                      confidence: item.confidence,
+                                      imagePath: item.imagePath,
+                                      similarBreeds: item.similarBreeds,
+                                      gatekeeperConfidence: item.gatekeeperConfidence,
+                                      fromHistory: true,
+                                      existingId: item.id,
+                                      initialPersonality: item.personality,
+                                    ),
+                                  ),
+                                );
+                                refresh();
+                              },
+                              onDismissed: () => _deleteItem(item.id),
                             );
                           },
                           childCount: _filteredHistory.length,
@@ -187,147 +200,6 @@ class ArchivesScreenState extends State<ArchivesScreen> {
 
                 const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
               ],
-            ),
-    );
-  }
-
-  Widget _buildHistoryCard(Prediction item) {
-    return Container(
-      margin: const EdgeInsets.symmetric(
-          horizontal: 16, vertical: 6), // Adjusted margin
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(12),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: () async {
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => AnalysisResultScreen(
-                  detectedBreed: item.breedName,
-                  confidence: item.confidence,
-                  imagePath: item.imagePath,
-                  similarBreeds:
-                      item.similarBreeds, // <-- CORRECTED: Pass directly
-                  gatekeeperConfidence: item.gatekeeperConfidence,
-                  fromHistory: true,
-                  existingId: item.id,
-                  initialPersonality: item.personality,
-                ),
-              ),
-            );
-            refresh();
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Container(
-                    width: 70,
-                    height: 70,
-                    color: Colors.grey[100],
-                    child: Image.file(
-                      File(item.imagePath),
-                      fit: BoxFit.cover,
-                      cacheWidth: 200, // Limit memory usage for assets
-                      errorBuilder: (_, __, ___) => Container(
-                        color: Colors.grey[200],
-                        child:
-                            const Icon(Icons.broken_image, color: Colors.grey),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item.breedName,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF3D3D3D),
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          Text(
-                            _formatDate(item.timestamp),
-                            style: TextStyle(
-                                color: Colors.grey[400], fontSize: 11),
-                          ),
-                          const SizedBox(width: 8),
-                          Container(
-                              width: 4,
-                              height: 4,
-                              decoration: BoxDecoration(
-                                  color: Colors.grey[300],
-                                  shape: BoxShape.circle)),
-                          const SizedBox(width: 8),
-                          Text(
-                            '${(item.confidence * 100).toInt()}%',
-                            style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      if (item.personality != null &&
-                          item.personality!.isNotEmpty) ...[
-                        const SizedBox(height: 6),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF6B73FF).withAlpha(25),
-                            borderRadius: BorderRadius.circular(6),
-                            border: Border.all(
-                                color: const Color(0xFF6B73FF).withAlpha(51)),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(Icons.auto_awesome,
-                                  size: 10, color: Color(0xFF6B73FF)),
-                              const SizedBox(width: 4),
-                              Text(
-                                item.personality!,
-                                style: const TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF6B73FF)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ]
-                    ],
-                  ),
-                ),
-                const Icon(Icons.arrow_forward_ios,
-                    size: 14, color: Color(0xFFE8A89B)),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+    ));
   }
 }

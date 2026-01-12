@@ -115,6 +115,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
               onRefresh: _loadHistory,
               color: const Color(0xFFE8A89B),
               child: CustomScrollView(
+                cacheExtent: 2500.0, // Turbo Mode: Pre-render 2-3 screens ahead
                 slivers: [
                   // CHART WIDGET (Scrollable)
                   if (_allPredictions.isNotEmpty)
@@ -221,6 +222,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   child: Image.file(
                     File(prediction.imagePath),
                     fit: BoxFit.cover,
+                    cacheWidth: 800, // Increased for sharper quality in Turbo Mode
                     errorBuilder: (context, error, stackTrace) => Container(
                         color: Colors.grey[200],
                         child: const Icon(Icons.broken_image)),

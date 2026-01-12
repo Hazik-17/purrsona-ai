@@ -75,6 +75,7 @@ class CatShareCard extends StatelessWidget {
               child: Image.file(
                 File(imagePath),
                 fit: BoxFit.cover,
+
               ),
             ),
           ),

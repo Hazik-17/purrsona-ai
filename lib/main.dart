@@ -21,6 +21,10 @@ void main() async {
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
 
+  // Turbo Mode: Infinite Image Cache for Smoothness
+  PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 500; // 500MB
+  PaintingBinding.instance.imageCache.maximumSize = 1000; // 1000 images
+
   runApp(const FelisAIApp());
 }
 
