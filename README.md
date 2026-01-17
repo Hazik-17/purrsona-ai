@@ -82,5 +82,3 @@ flutter pub get
 This project is developed exclusively for educational purposes as part of the academic curriculum at **Universiti Teknologi MARA (UiTM)**.
 
 ---
-
-*Developed by **Hazik Razak***
