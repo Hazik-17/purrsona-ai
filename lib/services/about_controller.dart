@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../models/about_data.dart';
 
+/** Stores app version and model info for the About screen */
 class AboutController {
   static const String flutterSdkVersion = "3.27.1";
   static const String tfliteRuntimeVersion = "2.14.0";
@@ -36,7 +37,6 @@ class AboutController {
     //"Ambiguity Resolution": "+12.4% vs Baseline",
     //"Peak RAM Usage": "< 250 MB",
   };
-
   Future<AboutData> loadAppInfo() async {
     try {
       final packageInfo = await PackageInfo.fromPlatform();

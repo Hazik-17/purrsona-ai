@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // For SystemChrome
-// For Stunning Animations
-
-// Screens
+import 'package:flutter/services.dart'; 
 import 'screens/splash_screen.dart';
 
 // Models & Services
@@ -12,6 +9,7 @@ import 'widgets/debug_overlay.dart';
 
 final mlService = MLModelService();
 
+/** App entry point - sets theme and shows splash screen */
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

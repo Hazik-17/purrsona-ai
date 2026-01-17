@@ -4,9 +4,11 @@ import 'package:image/image.dart' as img;
 import 'database_helper.dart';
 import '../models/prediction.dart';
 
+/** Saves scans, compresses images, and deletes old ones to save space */
 class HistoryController {
   final DatabaseHelper _dbHelper = DatabaseHelper();
 
+  // Shrinks image to 800px and saves as JPEG to save space
   Future<String> saveCompressedImage(File originalFile) async {
     try {
       // Read the original image
@@ -42,6 +44,7 @@ class HistoryController {
     }
   }
 
+  // Saves a new scan and deletes old ones if we have more than 50
   Future<void> addScan(Prediction prediction, String imagePath) async {
     try {
       // Compress the image first
@@ -72,12 +75,14 @@ class HistoryController {
     }
   }
 
+  // Counts how many scans we have
   Future<int> _getRecordCount() async {
     final db = await _dbHelper.database;
     final result = await db.rawQuery('SELECT COUNT(*) as count FROM history');
     return result.first['count'] as int;
   }
 
+  // Removes the oldest scan and its image
   Future<void> _deleteOldestRecord() async {
     final db = await _dbHelper.database;
     // Find the oldest record

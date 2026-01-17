@@ -12,6 +12,7 @@ import '../models/prediction.dart';
 import 'analysis_result_screen.dart';
 import 'about_screen.dart';
 
+/** Home screen where you take or pick cat photos to detect breed */
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -64,7 +65,7 @@ class WelcomeScreenState extends State<WelcomeScreen>
     }
   }
 
-  // Helper to Format Date (e.g., "Oct 24, 2:30 PM")
+  // Makes a readable date string like "Oct 24, 2:30 PM"
   String _formatDate(DateTime date) {
     const months = [
       "Jan",
@@ -87,6 +88,7 @@ class WelcomeScreenState extends State<WelcomeScreen>
     return "${months[date.month - 1]} ${date.day}, $h:$m $ampm";
   }
 
+  // Gets image from camera or gallery and detects breed
   Future<void> _pickAndAnalyzeImage({required bool fromCamera}) async {
     try {
       final XFile? image = await _imagePicker.pickImage(
@@ -123,7 +125,7 @@ class WelcomeScreenState extends State<WelcomeScreen>
     }
   }
 
-  // --- Await result and refresh ---
+  // Goes to result screen and refreshes recent scans when you come back
   void _navigateToResult(Prediction prediction, String imagePath) async {
     await Navigator.push(
       context,
@@ -142,6 +144,7 @@ class WelcomeScreenState extends State<WelcomeScreen>
     refreshRecents();
   }
 
+  // Shows a warning if confidence is too low and gives tips
   void _showLowConfidenceDialog(Prediction prediction, String imagePath) {
     showDialog(
       context: context,

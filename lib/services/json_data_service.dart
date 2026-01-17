@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/breed.dart';
 
+/** Loads the breed encyclopedia and lets us search for breed info */
 class JsonDataService {
   // Singleton pattern
   static final JsonDataService _instance = JsonDataService._internal();
@@ -10,10 +11,10 @@ class JsonDataService {
 
   List<Breed> _breedData = [];
 
-  // Getter to access the data
+  // Returns all available cat breeds from the encyclopedia
   List<Breed> getAllBreeds() => _breedData;
 
-  // Load data once when app starts
+  // Loads all breed data from JSON file into memory
   Future<void> loadData() async {
     try {
       final String response =
@@ -26,7 +27,7 @@ class JsonDataService {
     }
   }
 
-  // Get info for a specific breed
+  // Searches for a breed by name
   Breed? getBreedInfo(String query) {
     if (_breedData.isEmpty) return null;
 

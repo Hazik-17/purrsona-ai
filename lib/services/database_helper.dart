@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import '../models/prediction.dart';
 import '../models/breed_frequency.dart';
 
+/** Handles all database stuff - saving scans, loading history, deleting old ones */
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;
@@ -19,6 +20,7 @@ class DatabaseHelper {
     return _database!;
   }
 
+  // Sets up the database file on first run
   Future<Database> _initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, 'felis_ai.db');
@@ -30,6 +32,7 @@ class DatabaseHelper {
     );
   }
 
+  // Creates the scan history table
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE history(
@@ -45,7 +48,7 @@ class DatabaseHelper {
     ''');
   }
 
-  // --- CRUD OPERATIONS ---
+  // Saves a new scan to the database
   Future<int> insertPrediction(Prediction prediction) async {
     Database db = await database;
     Map<String, dynamic> row = prediction.toJson();
@@ -56,6 +59,7 @@ class DatabaseHelper {
     );
   }
 
+  // Gets all scans from newest to oldest
   Future<List<Prediction>> getHistory() async {
     Database db = await database;
     final List<Map<String, dynamic>> maps =
@@ -66,7 +70,7 @@ class DatabaseHelper {
     });
   }
 
-  // SECURE: This method uses whereArgs to prevent SQL injection.
+  // Finds all scans of a specific breed
   Future<List<Prediction>> getPredictionsByBreed(String breedName) async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query(
@@ -79,7 +83,7 @@ class DatabaseHelper {
     });
   }
 
-  // Delete a specific prediction
+  // Removes one scan by ID
   Future<void> deletePrediction(String id) async {
     final db = await database;
     await db.delete(
@@ -89,6 +93,7 @@ class DatabaseHelper {
     );
   }
 
+  // Updates the personality for a scan
   Future<void> updatePersonality(String id, String personality) async {
     final db = await database;
     await db.update(
@@ -99,7 +104,7 @@ class DatabaseHelper {
     );
   }
 
-  // --- ANALYTICS QUERY ---
+  // Counts how many times each breed shows up in all scans
   Future<List<BreedFrequency>> getBreedFrequency() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.rawQuery('''

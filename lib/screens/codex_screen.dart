@@ -4,6 +4,8 @@ import '../models/breed.dart';
 import '../services/json_data_service.dart';
 import 'breed_info_screen.dart';
 
+/** This is the cat breed encyclopedia - users can search and browse all 12 breeds with full information */
+/** Browse and search all 12 cat breeds in the encyclopedia */
 class CodexScreen extends StatefulWidget {
   const CodexScreen({super.key});
 
@@ -29,6 +31,7 @@ class _CodexScreenState extends State<CodexScreen> {
     super.dispose();
   }
 
+  // Loads all breeds from the encyclopedia
   Future<void> _loadBreeds() async {
     // Simulate a short delay for smoother UI feel or actual async loading
     await Future.delayed(const Duration(milliseconds: 300));

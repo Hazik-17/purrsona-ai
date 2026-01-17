@@ -1,4 +1,4 @@
-// lib/styles/app_constants.dart
+// Spacing and style sizes used everywhere in the app
 
 class AppRadius {
   static const double r16 = 16.0;

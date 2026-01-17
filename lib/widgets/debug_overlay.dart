@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../services/performance_service.dart';
 
+/** Floating display showing app memory usage for debugging */
 class DebugOverlay extends StatefulWidget {
   final Widget child;
 
@@ -27,8 +28,8 @@ class _DebugOverlayState extends State<DebugOverlay> {
     super.dispose();
   }
 
+  // Updates memory display every second
   void _startMemoryUpdates() {
-    // Update memory usage every second
     _updateTimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       final ram = await PerformanceService.instance.getCurrentMemoryUsage();
       if (mounted) {

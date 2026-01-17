@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/breed.dart';
 import '../services/json_data_service.dart';
 
+/** Shows detailed info about one breed - history, traits, health, care */
 class BreedInfoScreen extends StatefulWidget {
   final String breedName;
 
@@ -33,6 +34,7 @@ class _BreedInfoScreenState extends State<BreedInfoScreen>
     }
   }
 
+  // Loads breed details from the encyclopedia
   Future<void> _loadBreedInfo() async {
     setState(() {
       _isLoading = true;

@@ -5,6 +5,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../models/quiz_question.dart';
 import '../models/personality_data.dart';
 
+/** Fun personality quiz to figure out what type of cat they are */
 class CatPersonalityQuizScreen extends StatefulWidget {
   const CatPersonalityQuizScreen({super.key});
 
@@ -29,6 +30,7 @@ class _CatPersonalityQuizScreenState extends State<CatPersonalityQuizScreen> {
     _loadQuizData();
   }
 
+  // Loads all the quiz questions
   Future<void> _loadQuizData() async {
     final String response =
         await rootBundle.loadString('assets/data/quiz_questions.json');
@@ -40,6 +42,7 @@ class _CatPersonalityQuizScreenState extends State<CatPersonalityQuizScreen> {
     });
   }
 
+  // Records the answer and goes to next question
   void _answerQuestion(Map<String, int> adjustments) {
     adjustments.forEach((key, value) {
       _scores[key] = (_scores[key] ?? 0) + value;

@@ -8,6 +8,7 @@ import '../models/breed.dart';
 
 enum TimeRange { today, week, month, all }
 
+/** Shows a bar chart of which breeds we found most, with tips for each breed */
 class DetectionInsightsWidget extends StatefulWidget {
   final List<Prediction> fullHistory;
   final String? selectedBreed;
@@ -52,6 +53,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     }
   }
 
+  // Counts which breeds show up most and creates messages about them
   void _calculateStats() {
     final now = DateTime.now();
 
@@ -97,6 +99,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     });
   }
 
+  // Makes a friendly message about the top breed
   void _generateInsight(List<Map<String, dynamic>> stats, int totalScans) {
     if (stats.isEmpty) {
       _insightMessage = "No scans found for this period. Start exploring!";
@@ -118,6 +121,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     }
   }
 
+  // Gives breed-specific tips based on what breeds we found
   void _generateSmartRecommendation(List<Map<String, dynamic>> stats) {
     if (stats.isEmpty) {
       _smartRecommendation = "";
@@ -169,11 +173,13 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     }
   }
 
+  // Gets the image path for a breed
   String _getAssetPath(String breedName) {
     final Breed? breedInfo = JsonDataService().getBreedInfo(breedName);
     return breedInfo?.imagePath ?? 'assets/images/placeholder.jpg';
   }
 
+  // Finds the highest count to scale the chart
   int _getMaxCount() {
     if (_currentStats.isEmpty) return 5;
     int max = 0;
@@ -472,6 +478,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     );
   }
 
+  // Makes the filter button for today, week, month, or all time
   Widget _buildTimeFilterChip(String label, TimeRange range) {
     final isSelected = _selectedTimeRange == range;
     return GestureDetector(
@@ -513,6 +520,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     );
   }
 
+  // Makes the bars for the chart with animations
   List<BarChartGroupData> _generateBars() {
     return List.generate(_currentStats.length, (index) {
       final stat = _currentStats[index];
@@ -548,6 +556,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     });
   }
 
+  // Toggles filter when user clicks a bar
   void _handleSelection(String breedName) {
     if (widget.selectedBreed == breedName) {
       widget.onBreedSelected(null);

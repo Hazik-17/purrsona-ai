@@ -7,6 +7,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../secrets.dart';
 import '../models/vet_clinic.dart';
 
+/** Finds nearby vet clinics and pet stores using Google Maps */
 class VetClinicScreen extends StatefulWidget {
   const VetClinicScreen({super.key});
 
@@ -31,6 +32,7 @@ class _VetClinicScreenState extends State<VetClinicScreen> {
     _initializeLocation();
   }
 
+  // Gets location permission and finds nearby vets
   Future<void> _initializeLocation() async {
     setState(() {
       _isLoading = true;
@@ -76,6 +78,7 @@ class _VetClinicScreenState extends State<VetClinicScreen> {
     }
   }
 
+  // Calls Google Maps to find vets near you
   Future<void> _fetchNearbyPlaces(double lat, double lng, String type) async {
     // Double check internet before API call
     final List<ConnectivityResult> connectivityResult =

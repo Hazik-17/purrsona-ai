@@ -4,6 +4,7 @@ import '../services/splash_controller.dart';
 import '../services/json_data_service.dart';
 import 'main_navigation_screen.dart'; // Assuming this is the Dashboard/HomeView
 
+/** The loading screen that shows when the app starts */
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -33,6 +34,7 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
     super.dispose();
   }
 
+  // Loads a random fun fact about a breed to show while loading
   Future<void> _loadTip() async {
     try {
       await JsonDataService().loadData();
@@ -53,6 +55,7 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
     }
   }
 
+  // Loads everything and then goes to the main app
   Future<void> _initializeApp() async {
     try {
       await _controller.initializeDependencies(context);

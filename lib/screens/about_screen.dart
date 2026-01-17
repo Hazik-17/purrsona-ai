@@ -4,6 +4,7 @@ import '../services/about_controller.dart';
 import '../models/about_data.dart';
 import '../services/performance_service.dart';
 
+/** Shows app info, credits, version, and how to use */
 class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});
 

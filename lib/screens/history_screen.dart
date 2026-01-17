@@ -5,6 +5,7 @@ import '../services/database_helper.dart';
 import 'prediction_result_screen.dart';
 import '../widgets/history_chart_widget.dart';
 
+/** Shows all past scans with chart and filtering */
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
 
@@ -24,6 +25,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     _loadHistory();
   }
 
+  // Loads all past scans from database
   Future<void> _loadHistory() async {
     final db = DatabaseHelper();
     final data = await db.getHistory();
@@ -43,6 +45,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     }
   }
 
+  // Filters the list when user picks a breed
   void _onBreedSelected(String? breed) {
     setState(() {
       _selectedBreedFilter = breed;

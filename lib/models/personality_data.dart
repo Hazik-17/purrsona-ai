@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/** Personality type info and care tips from quiz results */
 class PersonalityProfile {
   final String id;
   final String title;
@@ -16,7 +17,7 @@ class PersonalityProfile {
   });
 }
 
-// Educational Data for Personality Types
+// All the personality types and what they mean
 class PersonalityDatabase {
   static const Map<String, PersonalityProfile> profiles = {
     'social': PersonalityProfile(

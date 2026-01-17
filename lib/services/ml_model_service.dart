@@ -8,6 +8,7 @@ import 'package:tflite_flutter/tflite_flutter.dart';
 import '../models/prediction.dart';
 import 'performance_service.dart';
 
+/** Handles the AI models for cat breed detection - runs the 3-stage detection */
 class MLModelService {
   static final MLModelService _instance = MLModelService._internal();
   factory MLModelService() => _instance;
@@ -23,6 +24,7 @@ class MLModelService {
 
   bool _initialized = false;
 
+  // Loads the 3 AI models and their label maps
   Future<void> initializeModels() async {
     if (_initialized) return;
 
@@ -64,6 +66,7 @@ class MLModelService {
     print("✅ ML Models Disposed Successfully");
   }
 
+  // Loads breed labels from JSON and converts them to a lookup map
   Future<Map<String, dynamic>> _loadAndFlipMap(String assetPath) async {
     try {
       String jsonString = await rootBundle.loadString(assetPath);
@@ -86,7 +89,7 @@ class MLModelService {
     }
   }
 
-  /// Preprocess image: Fix Rotation -> Crop Square -> Resize -> Normalize
+  // Prepares image for the models - fixes rotation, crops, resizes, and normalizes
   List preprocessImage(File imageFile, int size) {
     // Decode the image
     img.Image? image = img.decodeImage(imageFile.readAsBytesSync());
@@ -116,6 +119,7 @@ class MLModelService {
     return bytes.reshape([1, size, size, 3]);
   }
 
+  // Runs one model and returns predictions sorted by confidence
   List<Map<String, dynamic>> _runFlexibleModel(
       Interpreter model, Map<String, dynamic> labels, List input) {
     final outputTensor = model.getOutputTensor(0);
@@ -146,6 +150,7 @@ class MLModelService {
     return results;
   }
 
+  // Runs all 3 models in sequence to get the final breed prediction
   Future<Prediction> classifyImage(File imageFile) async {
     try {
       if (!_initialized) await initializeModels();
@@ -154,12 +159,12 @@ class MLModelService {
 
       final input = preprocessImage(imageFile, 224);
 
-      // --- STAGE 1: Gatekeeper (Is it a cat?) ---
+      // --- STAGE 1: Gatekeeper ---
       final gateResults =
           _runFlexibleModel(gatekeeperModel, gatekeeperLabels, input);
       final topGate = gateResults.first;
 
-      // Check if "Not a Cat" or "Dog" is detected
+      // Check if Not a Cat or Dog is detected
       bool isNotCat =
           topGate['label'].toString().toLowerCase().contains("not") ||
               topGate['label'].toString().toLowerCase().contains("dog");
@@ -180,15 +185,13 @@ class MLModelService {
           ? (1.0 - (topGate['confidence'] as double))
           : (topGate['confidence'] as double);
 
-      // --- STAGE 2: Generalist (Broad Classification) ---
+      // --- STAGE 2: Generalist ---
       final genResults =
           _runFlexibleModel(generalistModel, generalistLabels, input);
       final genTop = genResults.first;
       String genLabel = _formatLabel(genTop['label']);
 
       // --- STAGE 3: The Expert Trigger ---
-
-      // Define triggers based on your Thesis (Section 1.10)
       const List<String> expertTriggers = [
         'Birman',
         'British Shorthair',
@@ -199,7 +202,7 @@ class MLModelService {
 
       List<Map<String, dynamic>> finalResults;
 
-      // CHECK: Is the Generalist prediction in our "Confusing" list?
+      // Is the Generalist prediction in our confusing list?
       if (expertTriggers.contains(genLabel)) {
         print("🔍 Expert Triggered! Generalist thought it was: $genLabel");
 
@@ -208,8 +211,8 @@ class MLModelService {
             _runFlexibleModel(expertModel, expertLabels, input);
         final expertTop = expertResults.first;
 
-        // If Expert is confident (> 50%), we trust it.
-        // If Expert is unsure, we stick with the Generalist's initial guess.
+        // If Expert is confident > 50% trust it
+        // If Expert is unsure, tick with the generalist initial guess.
         if ((expertTop['confidence'] as double) > 0.50) {
           finalResults = expertResults;
           print("✅ Trusted Expert: ${expertTop['label']}");
@@ -218,7 +221,7 @@ class MLModelService {
           print("⚠️ Expert unsure, reverting to Generalist");
         }
       } else {
-        // Generalist found a distinct breed (e.g., Sphynx), so trust it immediately.
+        // Generalist found a distinct breed so trust it immediately.
         finalResults = genResults;
       }
 
@@ -266,7 +269,7 @@ class MLModelService {
     }
   }
 
-  // Helper to convert training labels to user-friendly names
+  // Converts model labels to human-readable breed names
   String _formatLabel(String label) {
     switch (label) {
       case 'Abyssinian':

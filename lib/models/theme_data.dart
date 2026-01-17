@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/** The app color scheme - all the peach and coral colors */
 class PurrsonaTheme {
   static const Color primaryBackground = Color(0xFFFAF8F5);
   static const Color secondaryBackground = Color(0xFFF3EFF0);

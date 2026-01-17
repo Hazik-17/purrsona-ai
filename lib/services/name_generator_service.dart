@@ -1,4 +1,6 @@
+/** This file generates fun name suggestions based on the cat breed and personality detected */
 class NameGeneratorService {
+  // Generates 5 random cat names based on breed and personality traits
   static List<String> generateNames(String breed, String personality) {
     List<String> suggestedNames = [];
 

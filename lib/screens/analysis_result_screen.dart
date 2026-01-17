@@ -18,6 +18,7 @@ import '../widgets/cat_share_card.dart';
 import '../widgets/analysis_result_widgets.dart';
 import '../models/breed.dart';
 
+/** Shows breed detection result with confidence, similar breeds, and share options */
 class AnalysisResultScreen extends StatefulWidget {
   final String detectedBreed;
   final double confidence;
@@ -76,7 +77,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
     });
   }
 
-  // OPTIMIZATION: Split initialization
+  // Loads breed info and saves scan to database
   Future<void> _delayedInitialization() async {
     // 1. Load Breed Info (JSON parsing can be slightly heavy)
     if (!_isNotCat) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/** Info about one stage of the AI pipeline */
 class ModelStage {
   final String title;
   final String description;
@@ -12,6 +13,7 @@ class ModelStage {
   });
 }
 
+/** App version, thesis, and model performance info */
 class AboutData {
   final String appName;
   final String appVersion;

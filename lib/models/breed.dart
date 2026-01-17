@@ -1,3 +1,4 @@
+/** All the info about one cat breed - name, history, traits, health, care tips */
 class Breed {
   final String id;
   final String name;

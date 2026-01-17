@@ -1,3 +1,4 @@
+/** One quiz question with answer choices */
 class QuizQuestion {
   final String id;
   final String questionText;
@@ -16,6 +17,7 @@ class QuizQuestion {
   }
 }
 
+/** One answer option for a quiz question */
 class QuizOption {
   final String text;
   final Map<String, int> adjustments;

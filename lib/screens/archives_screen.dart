@@ -8,6 +8,7 @@ import 'analysis_result_screen.dart';
 import '../widgets/history_chart_widget.dart';
 import '../widgets/history_card.dart';
 
+/** Shows all past scans with stats and filtering */
 class ArchivesScreen extends StatefulWidget {
   const ArchivesScreen({super.key});
 
@@ -27,6 +28,7 @@ class ArchivesScreenState extends State<ArchivesScreen> {
     refresh();
   }
 
+  // Loads all scans from database and applies breed filter
   Future<void> refresh() async {
     final db = DatabaseHelper();
     final history = await db.getHistory();
@@ -69,6 +71,7 @@ class ArchivesScreenState extends State<ArchivesScreen> {
     return "${months[date.month - 1]} ${date.day}, $h:$m $ampm";
   }
 
+  // Filters scans by selected breed
   void _onBreedSelected(String? breed) {
     setState(() {
       _selectedBreedFilter = breed;
@@ -81,6 +84,7 @@ class ArchivesScreenState extends State<ArchivesScreen> {
     });
   }
 
+  // Deletes one scan and refreshes the list
   Future<void> _deleteItem(String id) async {
     await DatabaseHelper().deletePrediction(id);
     refresh();
