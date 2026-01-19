@@ -4,7 +4,7 @@ import 'package:image/image.dart' as img;
 import 'database_helper.dart';
 import '../models/prediction.dart';
 
-/** Saves scans, compresses images, and deletes old ones to save space */
+/// Saves scans, compresses images, and deletes old ones to save space
 class HistoryController {
   final DatabaseHelper _dbHelper = DatabaseHelper();
 

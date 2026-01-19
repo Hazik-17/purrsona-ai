@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-/** Card widgets for showing breed prediction, confidence, and similar breeds */
+/// Card widgets for showing breed prediction, confidence, and similar breeds
 
 // --- 1. WINNER CARD ---
 class WinnerCard extends StatelessWidget {

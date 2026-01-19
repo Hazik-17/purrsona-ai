@@ -6,7 +6,7 @@ import '../services/ml_model_service.dart';
 import '../services/database_helper.dart';
 import '../services/json_data_service.dart';
 
-/** Loads everything the app needs when it starts - models, database, breed data */
+/// Loads everything the app needs when it starts - models, database, breed data
 class SplashController {
   final MLModelService _mlService = MLModelService();
   final DatabaseHelper _dbHelper = DatabaseHelper();

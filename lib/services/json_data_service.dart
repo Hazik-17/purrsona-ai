@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/breed.dart';
 
-/** Loads the breed encyclopedia and lets us search for breed info */
+/// Loads the breed encyclopedia and lets us search for breed info
 class JsonDataService {
   // Singleton pattern
   static final JsonDataService _instance = JsonDataService._internal();

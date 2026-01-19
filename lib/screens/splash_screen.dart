@@ -4,7 +4,7 @@ import '../services/splash_controller.dart';
 import '../services/json_data_service.dart';
 import 'main_navigation_screen.dart'; // Assuming this is the Dashboard/HomeView
 
-/** The loading screen that shows when the app starts */
+/// The loading screen that shows when the app starts
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 

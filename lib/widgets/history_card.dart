@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import '../models/prediction.dart';
 
-/** One scan result card that you can tap to view or swipe to delete */
+/// One scan result card that you can tap to view or swipe to delete
 class HistoryCard extends StatefulWidget {
   final Prediction item;
   final VoidCallback onTap;

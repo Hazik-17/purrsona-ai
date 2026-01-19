@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../models/about_data.dart';
 
-/** Stores app version and model info for the About screen */
+/// Stores app version and model info for the About screen
 class AboutController {
   static const String flutterSdkVersion = "3.27.1";
   static const String tfliteRuntimeVersion = "2.14.0";

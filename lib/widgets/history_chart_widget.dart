@@ -8,7 +8,7 @@ import '../models/breed.dart';
 
 enum TimeRange { today, week, month, all }
 
-/** Shows a bar chart of which breeds we found most, with tips for each breed */
+/// Shows a bar chart of which breeds we found most, with tips for each breed
 class DetectionInsightsWidget extends StatefulWidget {
   final List<Prediction> fullHistory;
   final String? selectedBreed;

@@ -2,7 +2,7 @@ import 'dart:developer' as developer;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-/** Tracks how much RAM the app is using - helps us see if something is too slow */
+/// Tracks how much RAM the app is using - helps us see if something is too slow
 class PerformanceService {
   static final PerformanceService _instance = PerformanceService._internal();
   static PerformanceService get instance => _instance;

@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 
-/** A pretty card showing the breed result for sharing on social media */
+/// A pretty card showing the breed result for sharing on social media
 class CatShareCard extends StatelessWidget {
   final String imagePath;
   final String breedName;

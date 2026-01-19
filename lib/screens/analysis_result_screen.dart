@@ -18,7 +18,7 @@ import '../widgets/cat_share_card.dart';
 import '../widgets/analysis_result_widgets.dart';
 import '../models/breed.dart';
 
-/** Shows breed detection result with confidence, similar breeds, and share options */
+/// Shows breed detection result with confidence, similar breeds, and share options
 class AnalysisResultScreen extends StatefulWidget {
   final String detectedBreed;
   final double confidence;

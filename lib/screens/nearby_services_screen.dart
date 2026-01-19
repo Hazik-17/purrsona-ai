@@ -7,7 +7,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../secrets.dart';
 import '../models/vet_clinic.dart';
 
-/** Finds nearby vet clinics and pet stores using Google Maps */
+/// Finds nearby vet clinics and pet stores using Google Maps
 class VetClinicScreen extends StatefulWidget {
   const VetClinicScreen({super.key});
 

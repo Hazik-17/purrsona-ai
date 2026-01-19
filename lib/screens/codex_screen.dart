@@ -5,7 +5,7 @@ import '../services/json_data_service.dart';
 import 'breed_info_screen.dart';
 
 /** This is the cat breed encyclopedia - users can search and browse all 12 breeds with full information */
-/** Browse and search all 12 cat breeds in the encyclopedia */
+/// Browse and search all 12 cat breeds in the encyclopedia
 class CodexScreen extends StatefulWidget {
   const CodexScreen({super.key});
 

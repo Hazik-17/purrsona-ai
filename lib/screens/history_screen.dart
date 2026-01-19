@@ -5,7 +5,7 @@ import '../services/database_helper.dart';
 import 'prediction_result_screen.dart';
 import '../widgets/history_chart_widget.dart';
 
-/** Shows all past scans with chart and filtering */
+/// Shows all past scans with chart and filtering
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
 

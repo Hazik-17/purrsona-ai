@@ -8,7 +8,7 @@ import 'analysis_result_screen.dart';
 import '../widgets/history_chart_widget.dart';
 import '../widgets/history_card.dart';
 
-/** Shows all past scans with stats and filtering */
+/// Shows all past scans with stats and filtering
 class ArchivesScreen extends StatefulWidget {
   const ArchivesScreen({super.key});
 

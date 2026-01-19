@@ -5,7 +5,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../models/quiz_question.dart';
 import '../models/personality_data.dart';
 
-/** Fun personality quiz to figure out what type of cat they are */
+/// Fun personality quiz to figure out what type of cat they are
 class CatPersonalityQuizScreen extends StatefulWidget {
   const CatPersonalityQuizScreen({super.key});
 

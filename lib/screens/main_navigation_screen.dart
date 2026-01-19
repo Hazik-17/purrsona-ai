@@ -8,7 +8,7 @@ import 'archives_screen.dart';
 final GlobalKey<WelcomeScreenState> homeKey = GlobalKey();
 final GlobalKey<ArchivesScreenState> historyKey = GlobalKey();
 
-/** Bottom navigation bar with Home, Codex, Vet Services, and History tabs */
+/// Bottom navigation bar with Home, Codex, Vet Services, and History tabs
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 

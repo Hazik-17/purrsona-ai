@@ -9,7 +9,7 @@ import 'widgets/debug_overlay.dart';
 
 final mlService = MLModelService();
 
-/** App entry point - sets theme and shows splash screen */
+/// App entry point - sets theme and shows splash screen
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/** Personality type info and care tips from quiz results */
+/// Personality type info and care tips from quiz results
 class PersonalityProfile {
   final String id;
   final String title;

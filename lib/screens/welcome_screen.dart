@@ -12,7 +12,7 @@ import '../models/prediction.dart';
 import 'analysis_result_screen.dart';
 import 'about_screen.dart';
 
-/** Home screen where you take or pick cat photos to detect breed */
+/// Home screen where you take or pick cat photos to detect breed
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 

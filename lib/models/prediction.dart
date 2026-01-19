@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-/** One scan result - breed, confidence, image, and similar breeds */
+/// One scan result - breed, confidence, image, and similar breeds
 class Prediction {
   final String id;
   final String imagePath;

@@ -6,7 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import '../models/prediction.dart';
 import '../models/breed_frequency.dart';
 
-/** Handles all database stuff - saving scans, loading history, deleting old ones */
+/// Handles all database stuff - saving scans, loading history, deleting old ones
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;

@@ -8,7 +8,7 @@ import 'package:tflite_flutter/tflite_flutter.dart';
 import '../models/prediction.dart';
 import 'performance_service.dart';
 
-/** Handles the AI models for cat breed detection - runs the 3-stage detection */
+/// Handles the AI models for cat breed detection - runs the 3-stage detection
 class MLModelService {
   static final MLModelService _instance = MLModelService._internal();
   factory MLModelService() => _instance;
@@ -215,10 +215,10 @@ class MLModelService {
         // If Expert is unsure, tick with the generalist initial guess.
         if ((expertTop['confidence'] as double) > 0.50) {
           finalResults = expertResults;
-          print("✅ Trusted Expert: ${expertTop['label']}");
+          print(" Trusted Expert: ${expertTop['label']}");
         } else {
           finalResults = genResults;
-          print("⚠️ Expert unsure, reverting to Generalist");
+          print(" Expert unsure, reverting to Generalist");
         }
       } else {
         // Generalist found a distinct breed so trust it immediately.
@@ -254,7 +254,7 @@ class MLModelService {
         similarBreeds: cleanSimilar,
       );
     } catch (e) {
-      print("❌ Error during classification: $e");
+      print(" Error during classification: $e");
       await PerformanceService.instance.logPerformanceMetric('Inference Error');
       // Return a prediction with an error state
       return Prediction(

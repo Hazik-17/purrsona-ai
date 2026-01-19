@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../services/performance_service.dart';
 
-/** Floating display showing app memory usage for debugging */
+/// Floating display showing app memory usage for debugging
 class DebugOverlay extends StatefulWidget {
   final Widget child;
 

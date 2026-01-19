@@ -5,7 +5,7 @@ import '../models/prediction.dart';
 import '../services/history_controller.dart';
 import 'breed_info_screen.dart';
 
-/** Shows a past scan result with animations and breed info option */
+/// Shows a past scan result with animations and breed info option
 class PredictionResultScreen extends StatefulWidget {
   final Prediction prediction;
 

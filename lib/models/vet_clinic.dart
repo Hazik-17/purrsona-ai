@@ -1,6 +1,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-/** Info about a vet clinic or pet store from Google Maps */
+/// Info about a vet clinic or pet store from Google Maps
 class VetClinic {
   final String id;
   final String name;
