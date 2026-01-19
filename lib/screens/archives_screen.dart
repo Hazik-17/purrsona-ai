@@ -49,27 +49,6 @@ class ArchivesScreenState extends State<ArchivesScreen> {
     }
   }
 
-  String _formatDate(DateTime date) {
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ];
-    final h =
-        date.hour > 12 ? date.hour - 12 : (date.hour == 0 ? 12 : date.hour);
-    final ampm = date.hour >= 12 ? "PM" : "AM";
-    final m = date.minute.toString().padLeft(2, '0');
-    return "${months[date.month - 1]} ${date.day}, $h:$m $ampm";
-  }
 
   // Filters scans by selected breed
   void _onBreedSelected(String? breed) {
