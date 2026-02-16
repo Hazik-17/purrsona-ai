@@ -8,6 +8,7 @@ import 'package:path/path.dart' as p;
 
 import '../services/ml_model_service.dart';
 import '../services/database_helper.dart';
+import '../services/history_controller.dart';
 import '../models/prediction.dart';
 import 'analysis_result_screen.dart';
 import 'about_screen.dart';
@@ -127,21 +128,40 @@ class WelcomeScreenState extends State<WelcomeScreen>
 
   // Goes to result screen and refreshes recent scans when you come back
   void _navigateToResult(Prediction prediction, String imagePath) async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => AnalysisResultScreen(
-          detectedBreed: prediction.breedName,
-          confidence: prediction.confidence,
-          imagePath: imagePath,
-          similarBreeds: prediction.similarBreeds,
-          gatekeeperConfidence: prediction.gatekeeperConfidence,
-          fromHistory: false, // New scan = create new entry
+    // Save the prediction reliably before navigating so release builds
+    // don't miss inserts if the user navigates back quickly.
+    // Skip saving "Not a Cat" results as we only track actual breed detections
+    try {
+      final shouldSave = prediction.breedName != "Not a Cat";
+      if (shouldSave) {
+        await HistoryController().addScan(prediction, imagePath);
+      }
+      // Navigate with fromHistory=true so the result screen doesn't re-save
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => AnalysisResultScreen(
+            detectedBreed: prediction.breedName,
+            confidence: prediction.confidence,
+            imagePath: imagePath,
+            similarBreeds: prediction.similarBreeds,
+            gatekeeperConfidence: prediction.gatekeeperConfidence,
+            fromHistory: shouldSave,  // Only consider it "from history" if we saved it
+            existingId: shouldSave ? prediction.id : null,
+            initialPersonality: null,
+          ),
         ),
-      ),
-    );
-    // Refresh list when come back
-    refreshRecents();
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to save scan: $e')),
+        );
+      }
+    } finally {
+      // Refresh list when come back
+      refreshRecents();
+    }
   }
 
   // Shows a warning if confidence is too low and gives tips

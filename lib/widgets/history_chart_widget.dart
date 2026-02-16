@@ -35,6 +35,9 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
   String _insightMessage = "Welcome to your insights!";
   String _smartRecommendation = "";
 
+  //to store the hover text
+  String? _hoveredStat;
+
   @override
   void initState() {
     super.initState();
@@ -90,12 +93,11 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     }).toList();
 
     stats.sort((a, b) => (b['count'] as int).compareTo(a['count'] as int));
-    final topStats = stats.take(5).toList();
 
     setState(() {
-      _currentStats = topStats;
-      _generateInsight(topStats, filteredHistory.length);
-      _generateSmartRecommendation(topStats);
+      _currentStats = stats;  // Show all breeds, no limit
+      _generateInsight(stats, filteredHistory.length);
+      _generateSmartRecommendation(stats);
     });
   }
 
@@ -237,10 +239,14 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "Detection Frequency",
+                        // CHANGED: This Text updates when you touch the chart
+                        Text(
+                          _hoveredStat ?? "Detection Frequency",
                           style: TextStyle(
-                            color: Color(0xFF9E9E9E),
+                            // Change color to Pink when hovering, Grey when default
+                            color: _hoveredStat != null
+                                ? const Color(0xFFD4746B)
+                                : const Color(0xFF9E9E9E),
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1.0,
@@ -284,124 +290,185 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
                   ),
                 )
               else
-                AspectRatio(
-                  aspectRatio: 1.5,
-                  child: BarChart(
-                    BarChartData(
-                      alignment: BarChartAlignment.spaceAround,
-                      maxY: _getMaxCount().toDouble() * 1.2,
-                      barTouchData: BarTouchData(
-                        enabled: true,
-                        touchTooltipData: BarTouchTooltipData(
-                          getTooltipColor: (_) => const Color(0xFF3D3D3D),
-                          tooltipPadding: const EdgeInsets.all(12),
-                          tooltipMargin: 8,
-                          getTooltipItem: (group, groupIndex, rod, rodIndex) {
-                            final stat = _currentStats[groupIndex];
-                            final breed = stat['breedName'];
-                            final count = stat['count'];
-                            final conf = (stat['avgConfidence'] * 100)
-                                .toStringAsFixed(1);
+                // Calculate chart width: ~80px per bar + padding
+                SizedBox(
+                  height: 220,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Stack(
+                      children: [
+                        SizedBox(
+                          width: (_currentStats.length * 80)
+                              .toDouble()
+                              .clamp(300, double.infinity),
+                          child: BarChart(
+                            BarChartData(
+                              alignment: BarChartAlignment.spaceAround,
+                              maxY: _getMaxCount().toDouble() * 1.05,
+                              barTouchData: BarTouchData(
+                                enabled: false, // CHANGED: Disable floating tooltip
+                                touchCallback: (FlTouchEvent event, barTouchResponse) {
+                                  // 1. Handle Hover Effect (Update Header Text)
+                                  setState(() {
+                                    if (!event.isInterestedForInteractions ||
+                                        barTouchResponse == null ||
+                                        barTouchResponse.spot == null) {
+                                      _hoveredStat = null;
+                                      return;
+                                    }
+                                    final index = barTouchResponse
+                                        .spot!.touchedBarGroupIndex;
+                                    final stat = _currentStats[index];
+                                    final conf = (stat['avgConfidence'] * 100)
+                                        .toStringAsFixed(1);
+                                    _hoveredStat =
+                                        "${stat['breedName']}: $conf% Confidence";
+                                  });
 
-                            return BarTooltipItem(
-                              '$breed\n',
-                              const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              children: [
-                                TextSpan(
-                                    text: '$count Scans\n',
-                                    style: const TextStyle(fontSize: 12)),
-                                TextSpan(
-                                    text: '$conf% Avg Confidence',
-                                    style: const TextStyle(
-                                        fontSize: 10,
-                                        color: Color(0xFFE8A89B))),
-                              ],
-                            );
-                          },
-                        ),
-                        touchCallback: (FlTouchEvent event, barTouchResponse) {
-                          if (event is FlTapUpEvent &&
-                              barTouchResponse?.spot != null) {
-                            final index =
-                                barTouchResponse!.spot!.touchedBarGroupIndex;
-                            final breedName = _currentStats[index]['breedName'];
-                            _handleSelection(breedName);
-                          }
-                        },
-                      ),
-                      titlesData: FlTitlesData(
-                        show: true,
-                        bottomTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            reservedSize: 60,
-                            getTitlesWidget: (value, meta) {
-                              final index = value.toInt();
-                              if (index >= _currentStats.length) {
-                                return const SizedBox();
-                              }
+                                  // 2. Handle Tap Selection
+                                  if (event is FlTapUpEvent &&
+                                      barTouchResponse?.spot != null) {
+                                    final index = barTouchResponse!
+                                        .spot!.touchedBarGroupIndex;
+                                    final breedName =
+                                        _currentStats[index]['breedName'];
+                                    _handleSelection(breedName);
+                                  }
+                                },
+                              ),
+                              titlesData: FlTitlesData(
+                                show: true,
+                                bottomTitles: AxisTitles(
+                                  sideTitles: SideTitles(
+                                    showTitles: true,
+                                    reservedSize: 60,
+                                    getTitlesWidget: (value, meta) {
+                                      final index = value.toInt();
+                                      if (index >= _currentStats.length) {
+                                        return const SizedBox();
+                                      }
 
-                              final name =
-                                  _currentStats[index]['breedName'] as String;
-                              final isSelected = widget.selectedBreed == name;
+                                      final name =
+                                          _currentStats[index]['breedName']
+                                              as String;
+                                      final isSelected =
+                                          widget.selectedBreed == name;
 
-                              return SideTitleWidget(
-                                axisSide: meta.axisSide,
-                                space: 8,
-                                child: GestureDetector(
-                                  onTap: () => _handleSelection(name),
-                                  child: AnimatedContainer(
-                                    duration: 300.ms,
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: isSelected
-                                            ? const Color(0xFFD4746B)
-                                            : Colors.transparent,
-                                        width: 2.5,
-                                      ),
-                                      boxShadow: isSelected
-                                          ? [
-                                              BoxShadow(
-                                                  color: const Color(0xFFD4746B)
-                                                      .withAlpha(
-                                                          (255 * 0.3).round()),
-                                                  blurRadius: 8)
-                                            ]
-                                          : [],
-                                    ),
-                                    child: ClipOval(
-                                      child: Image.asset(
-                                        _getAssetPath(name),
-                                        fit: BoxFit.cover,
-                                        errorBuilder: (_, __, ___) =>
-                                            const Icon(Icons.pets,
-                                                size: 20, color: Colors.grey),
-                                      ),
-                                    ),
+                                      return SideTitleWidget(
+                                        axisSide: meta.axisSide,
+                                        space: 8,
+                                        child: GestureDetector(
+                                          onTap: () => _handleSelection(name),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              AnimatedContainer(
+                                                duration: 300.ms,
+                                                width: 32,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: isSelected
+                                                        ? const Color(0xFFD4746B)
+                                                        : Colors.transparent,
+                                                    width: 2.0,
+                                                  ),
+                                                  boxShadow: isSelected
+                                                      ? [
+                                                          BoxShadow(
+                                                              color: const Color(
+                                                                      0xFFD4746B)
+                                                                  .withAlpha((255 *
+                                                                          0.3)
+                                                                      .round()),
+                                                              blurRadius: 6)
+                                                        ]
+                                                      : [],
+                                                ),
+                                                child: ClipOval(
+                                                  child: Image.asset(
+                                                    _getAssetPath(name),
+                                                    fit: BoxFit.cover,
+                                                    errorBuilder: (_, __,
+                                                            ___) =>
+                                                        const Icon(Icons.pets,
+                                                            size: 16,
+                                                            color: Colors.grey),
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(height: 2),
+                                              SizedBox(
+                                                width: 50,
+                                                height: 16,
+                                                child: Transform.rotate(
+                                                  angle: -0.698, // ~40 degrees
+                                                  child: Text(
+                                                    name,
+                                                    style: const TextStyle(
+                                                      color: Color(0xFF3D3D3D),
+                                                      fontSize: 8,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
-                              );
-                            },
+                                leftTitles: const AxisTitles(
+                                    sideTitles: SideTitles(showTitles: false)),
+                                topTitles: AxisTitles(
+                                  sideTitles: SideTitles(
+                                    showTitles: true,
+                                    reservedSize: 30,
+                                    getTitlesWidget: (value, meta) {
+                                      final index = value.toInt();
+                                      if (index >= _currentStats.length) {
+                                        return const SizedBox();
+                                      }
+
+                                      final count =
+                                          _currentStats[index]['count'] as int;
+
+                                      return SideTitleWidget(
+                                        axisSide: meta.axisSide,
+                                        space: 4,
+                                        child: Text(
+                                          '$count',
+                                          style: const TextStyle(
+                                            color: Color(0xFF3D3D3D),
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                                rightTitles: const AxisTitles(
+                                    sideTitles: SideTitles(showTitles: false)),
+                              ),
+                              gridData: const FlGridData(show: false),
+                              borderData: FlBorderData(show: false),
+                              barGroups: _generateBars(),
+                            ),
+                            swapAnimationDuration: 400.ms,
+                            swapAnimationCurve: Curves.easeOutCubic,
                           ),
                         ),
-                        leftTitles: const AxisTitles(
-                            sideTitles: SideTitles(showTitles: false)),
-                        topTitles: const AxisTitles(
-                            sideTitles: SideTitles(showTitles: false)),
-                        rightTitles: const AxisTitles(
-                            sideTitles: SideTitles(showTitles: false)),
-                      ),
-                      gridData: const FlGridData(show: false),
-                      borderData: FlBorderData(show: false),
-                      barGroups: _generateBars(),
+                      ],
                     ),
-                    swapAnimationDuration: 400.ms,
-                    swapAnimationCurve: Curves.easeOutCubic,
                   ),
                 ),
             ],
@@ -478,6 +545,9 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
     );
   }
 
+  // Calculates chart width hint when scrolling needed
+  bool _shouldScroll() => _currentStats.length > 5;
+
   // Makes the filter button for today, week, month, or all time
   Widget _buildTimeFilterChip(String label, TimeRange range) {
     final isSelected = _selectedTimeRange == range;
@@ -547,7 +617,7 @@ class _DetectionInsightsWidgetState extends State<DetectionInsightsWidget> {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
             backDrawRodData: BackgroundBarChartRodData(
               show: true,
-              toY: _getMaxCount().toDouble() * 1.1,
+              toY: _getMaxCount().toDouble() * 1.05,
               color: const Color(0xFFF5F5F5),
             ),
           ),

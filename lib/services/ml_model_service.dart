@@ -43,7 +43,7 @@ class MLModelService {
         options: InterpreterOptions()..threads = 2,
       );
 
-      // Load Labels (AND FLIP THEM IF NEEDED)
+      // Load Labels
       gatekeeperLabels = await _loadAndFlipMap(
           'assets/models/gatekeeper_model_class_indices.json');
       generalistLabels = await _loadAndFlipMap(
@@ -164,7 +164,7 @@ class MLModelService {
           _runFlexibleModel(gatekeeperModel, gatekeeperLabels, input);
       final topGate = gateResults.first;
 
-      // Check if Not a Cat or Dog is detected
+      // Check if Not a Cat is detected
       bool isNotCat =
           topGate['label'].toString().toLowerCase().contains("not") ||
               topGate['label'].toString().toLowerCase().contains("dog");

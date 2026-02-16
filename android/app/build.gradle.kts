@@ -41,6 +41,20 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.getByName("debug")
+
+            // Enable R8 Code Shrinking
+            isMinifyEnabled = true
+            isShrinkResources = true
+            
+            // This loads the default Android rules AND custom rules file
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        debug {
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
 }
